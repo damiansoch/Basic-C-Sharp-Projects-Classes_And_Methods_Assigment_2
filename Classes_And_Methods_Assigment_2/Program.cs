@@ -6,11 +6,39 @@ namespace Classes_And_Methods_Assigment_2
     {
         static void Main(string[] args)
         {
-            double resultOne = UsableFunctions.Power(5, 3);
-            double resultTwo = UsableFunctions.Power(-3, 1);
-            double resultThree = UsableFunctions.Power(14);
+            UsableFunctions usableFunctions = new UsableFunctions();
 
-            Console.WriteLine("base:5, power:3 = " + resultOne + "\n base:-3, power:1 = " + resultTwo + "\n base:14, power: 2(default) =" + resultThree);
+
+            Console.WriteLine("This program will count the Power of the number provided");
+            Console.WriteLine("\n");
+
+            Console.WriteLine("Please enter two numbers first number is the \"base\" and the second number is the \"power\". \n If the second number is not provided, The power will be 2 as a default. ");
+            Console.WriteLine("Please enter \"base\". ");
+
+            int firstNumber = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Do you want to provide the power? If not, it will be the defoult - second power. \n Answer \"Y\" - Yes, \"N\" - No.");
+            bool option = Console.ReadLine().ToLower() == "y" ? true : false;
+
+            if (option)
+            {
+                Console.WriteLine("Please enter \"power\".");
+                int secondNumber = Convert.ToInt32(Console.ReadLine());
+                double resultOne = usableFunctions.Power(firstNumber, secondNumber);
+                Console.WriteLine("base: " + firstNumber + ", power: " + secondNumber + " = " + resultOne);
+
+            }
+            else
+            {
+                double resultOne = usableFunctions.Power(firstNumber);
+                Console.WriteLine("base: " + firstNumber + ", power: 2(default)" + " = " + resultOne);
+
+            }
+
+
+
+
+
             Console.ReadLine();
         }
     }
